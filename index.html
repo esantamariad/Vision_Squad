@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Squad - Animales marinos tejidos a mano</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0fbff;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        header {
+            width: calc(100% - 40px);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 25px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            background-color: #168aad;
+            color: white;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .logo-container {
+            flex-shrink: 0;
+        }
+
+        .logo-container img {
+            width: 70px;
+            height: 70px;
+            display: block;
+            object-fit: cover;
+            border: 2px solid #d8f7ff;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
+        h1 {
+            margin: 0 0 5px;
+            font-size: 2.2rem;
+        }
+
+        .subtitle {
+            margin: 0;
+            color: #d8f7ff;
+            font-size: 1.1rem;
+        }
+
+        .hero-banner {
+            width: calc(100% - 40px);
+            max-width: 900px;
+            margin: 20px auto;
+            overflow: hidden;
+            background-color: #d8f7ff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0 30px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: #6c757d;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: #168aad;
+            background-color: #f0fbff;
+        }
+
+        .tab-btn.active {
+            color: #168aad;
+            border-bottom-color: #168aad;
+        }
+
+        .tab-content {
+            display: none;
+            width: calc(100% - 40px);
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .about-box {
+            padding: 40px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .about-box h2 {
+            margin-top: 30px;
+            color: #168aad;
+        }
+
+        .about-box h2:first-child {
+            margin-top: 0;
+        }
+
+        .about-box h3 {
+            color: #0b5d7a;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            display: block;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .product-card h3 {
+            margin: 15px 0 10px;
+            color: #168aad;
+        }
+
+        .product-card p {
+            flex-grow: 1;
+            margin: 0 0 15px;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: block;
+            padding: 10px;
+            background-color: #168aad;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0b5d7a;
+        }
+
+        .payment-qr {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .payment-qr img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #222;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                width: calc(100% - 24px);
+                padding: 20px 15px;
+                gap: 14px;
+            }
+
+            .logo-container img {
+                width: 60px;
+                height: 60px;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .hero-banner,
+            .tab-content {
+                width: calc(100% - 24px);
+            }
+
+            .hero-banner {
+                margin: 14px auto;
+            }
+
+            .tab-btn {
+                flex: 1;
+                min-width: 100px;
+                padding: 13px 10px;
+                font-size: 1rem;
+            }
+
+            .about-box {
+                padding: 25px 20px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card img {
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="img/Logo.png" alt="Logo de Vision Squad">
+        </div>
+
+        <div class="header-text">
+            <h1>Vision Squad</h1>
+            <p class="subtitle">Criaturas marinas tejidas a mano con amor y creatividad</p>
+        </div>
+    </header>
+
+    <div class="hero-banner">
+        <img src="img/Escena.png" alt="Escena marina de amigurumis con pulpo, tortuga y estrella de mar">
+    </div>
+
+    <nav class="tabs-nav" aria-label="Secciones principales">
+        <button type="button" class="tab-btn active" data-tab="nosotros" aria-controls="nosotros" aria-selected="true">
+            Nosotros
+        </button>
+        <button type="button" class="tab-btn" data-tab="productos" aria-controls="productos" aria-selected="false">
+            Productos
+        </button>
+        <button type="button" class="tab-btn" data-tab="pagos" aria-controls="pagos" aria-selected="false">
+            Pagos
+        </button>
+    </nav>
+
+    <main>
+        <section id="nosotros" class="tab-content active">
+            <div class="about-box">
+                <h2>Nuestra Historia</h2>
+                <p>
+                    Somos un emprendimiento creativo inspirado en el océano, el crochet y el valor de lo hecho a mano.
+                    Transformamos hilos de colores en pulpos, tortugas, estrellas de mar y otros animales marinos llenos
+                    de personalidad.
+                </p>
+                <p>
+                    Cada amigurumi se teje cuidadosamente, desde la primera puntada hasta el último detalle. Por eso,
+                    cada criatura marina es única y conserva la esencia del trabajo artesanal.
+                </p>
+
+                <h2>Misión</h2>
+                <p>
+                    Crear amigurumis marinos artesanales que inspiren ternura, imaginación y conexión con la naturaleza,
+                    transformando cada hilo en una pequeña criatura del océano.
+                </p>
+
+                <h2>Visión</h2>
+                <p>
+                    Ser una marca reconocida por nuestros diseños marinos, la calidad del tejido y la posibilidad de
+                    personalizar recuerdos únicos para momentos especiales.
+                </p>
+            </div>
+        </section>
+
+        <section id="productos" class="tab-content">
+            <div class="products-grid">
+                <article class="product-card">
+                    <img src="img/Pulpito_Oliver.jpeg" alt="Pulpito Oliver tejido en amigurumi" loading="lazy">
+                    <h3>Pulpito Oliver</h3>
+                    <p>
+                        Adorable pulpo tejido a mano, con suaves tentáculos y colores personalizables. Ideal para decorar
+                        o regalar.
+                    </p>
+                    <a href="#" class="btn"
+                       data-producto="Pulpito Oliver"
+                       data-historia="Dicen que llegó desde un arrecife lejano buscando un nuevo hogar."
+                       data-precio="S/ 12.00">
+                        Ver detalles
+                    </a>
+                </article>
+
+                <article class="product-card">
+                    <img src="img/Tortuguita_Marina.jpeg" alt="Tortuguita Marina tejida en amigurumi" loading="lazy">
+                    <h3>Tortuguita Marina</h3>
+                    <p>
+                        Tierna tortuga tejida a crochet, con caparazón de colores y detalles cuidadosamente bordados.
+                    </p>
+                    <a href="#" class="btn"
+                       data-producto="Tortuguita Marina"
+                       data-historia="Marina recorre los arrecifes llevando tranquilidad a cada rincón del océano."
+                       data-precio="S/ 12.00">
+                        Ver detalles
+                    </a>
+                </article>
+
+                <article class="product-card">
+                    <img src="img/Estrella.png" alt="Estrellita de Mar tejida en amigurumi" loading="lazy">
+                    <h3>Estrellita de Mar</h3>
+                    <p>
+                        Encantadora estrella de mar tejida a mano que transmite tranquilidad y dulzura.
+                    </p>
+                    <a href="#" class="btn"
+                       data-producto="Estrellita de Mar"
+                       data-historia="Cada noche brilla suavemente para guiar a sus amigos del mar."
+                       data-precio="S/ 12.00">
+                        Ver detalles
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <section id="pagos" class="tab-content">
+            <div class="about-box">
+                <h2>Pedidos y formas de pago</h2>
+                <h3>Yape</h3>
+
+                <p>
+                    Elige tu criatura marina, confirma la disponibilidad y realiza tu pago de forma rápida y segura
+                    mediante Yape.
+                </p>
+
+                <p><strong>Número Yape:</strong> 984 724 927</p>
+
+                <div class="payment-qr">
+                    <img src="img/Yape.png" alt="Código QR de Yape">
+                </div>
+
+                <p>
+                    Una vez realizado el pago, envíanos la captura junto con el producto elegido y los detalles de
+                    personalización para confirmar tu pedido.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vision Squad. Tejiendo la magia del mar en cada puntada.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabButtons = document.querySelectorAll(".tab-btn");
+            const tabContents = document.querySelectorAll(".tab-content");
+            const detailButtons = document.querySelectorAll(".btn");
+
+            tabButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const selectedTab = button.dataset.tab;
+
+                    tabContents.forEach(function (content) {
+                        content.classList.remove("active");
+                    });
+
+                    tabButtons.forEach(function (tabButton) {
+                        tabButton.classList.remove("active");
+                        tabButton.setAttribute("aria-selected", "false");
+                    });
+
+                    document.getElementById(selectedTab).classList.add("active");
+                    button.classList.add("active");
+                    button.setAttribute("aria-selected", "true");
+                });
+            });
+
+            detailButtons.forEach(function (button) {
+                button.addEventListener("click", function (event) {
+                    event.preventDefault();
+
+                    const producto = button.dataset.producto;
+                    const historia = button.dataset.historia;
+                    const precio = button.dataset.precio;
+
+                    alert(
+                        "Has seleccionado " + producto + ".\n\n" +
+                        historia + "\n\n" +
+                        "Precio: " + precio + ".\n\n" +
+                        "Escríbenos para confirmar disponibilidad y personalización."
+                    );
+                });
+            });
+        });
+    </script>
+</body>
+</html>
