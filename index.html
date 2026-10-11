@@ -223,7 +223,27 @@
             margin: 0;
         }
 
-        @media (max-width: 600px) {
+	    .organigrama {
+	 	    width: 100%;
+		    max-width: 800px;
+		    height: auto;
+		    display: block;
+		    margin: 20px auto;
+		}		
+
+	.video-container{
+   	 text-align:center;
+    	margin-top:20px;
+	}
+
+	.video-container video{
+    	width:100%;
+    	max-width:800px;
+    	border-radius:10px;
+    	box-shadow:0 4px 10px rgba(0,0,0,0.15);
+	}
+        
+	@media (max-width: 600px) {
             header {
                 width: calc(100% - 24px);
                 padding: 20px 15px;
@@ -270,6 +290,8 @@
             .product-card img {
                 height: 230px;
             }
+
+
         }
     </style>
 </head>
@@ -294,12 +316,19 @@
         <button type="button" class="tab-btn active" data-tab="nosotros" aria-controls="nosotros" aria-selected="true">
             Nosotros
         </button>
+
+	<button type="button" class="tab-btn" data-tab="video"
+ 	       aria-controls="video" aria-selected="false">
+    	Video Promocional
+	</button>
+
         <button type="button" class="tab-btn" data-tab="productos" aria-controls="productos" aria-selected="false">
             Productos
         </button>
         <button type="button" class="tab-btn" data-tab="pagos" aria-controls="pagos" aria-selected="false">
             Pagos
         </button>
+
     </nav>
 
     <main>
@@ -327,13 +356,41 @@
                     Ser una marca reconocida por nuestros diseños marinos, la calidad del tejido y la posibilidad de
                     personalizar recuerdos únicos para momentos especiales.
                 </p>
+
+		<h2>Organigrama</h2>
+		<p>
+			A continuación, presentamos el Organigrama de Vision Squad:
+		</p>
+			<img src="img/Organigrama.png"
+			     alt="Organigrama Vision Squad"
+			     class="organigrama"
+			     loading="lazy">>
+
             </div>
         </section>
+
+	<section id="video" class="tab-content">
+	    <div class="about-box">
+        	<h2>Video Promocional</h2>
+
+        	<p>
+            	Conoce más sobre Vision Squad y nuestros amigurumis marinos
+           	 a través de nuestro video promocional.
+        	</p>
+
+        	<div class="video-container">
+            	<video controls>
+                	<source src="img/Video.mp4" type="video/mp4">
+                	Tu navegador no soporta la reproducción de video.
+            	</video>
+        	</div>
+    	</div>
+	</section>
 
         <section id="productos" class="tab-content">
             <div class="products-grid">
                 <article class="product-card">
-                    <img src="img/Pulpito_Oliver.jpeg" alt="Pulpito Oliver tejido en amigurumi" loading="lazy">
+                    <img src="img/Pulpito_Oliver.png" alt="Pulpito Oliver tejido en amigurumi" loading="lazy">
                     <h3>Pulpito Oliver</h3>
                     <p>
                         Adorable pulpo tejido a mano, con suaves tentáculos y colores personalizables. Ideal para decorar
@@ -387,10 +444,10 @@
                     mediante Yape.
                 </p>
 
-                <p><strong>Número Yape:</strong> 984 724 927</p>
+                <p><strong>Número Yape:</strong> 975 419 957</p>
 
                 <div class="payment-qr">
-                    <img src="img/Yape.png" alt="Código QR de Yape">
+                    <img src="img/Yape.jpeg" alt="Código QR de Yape">
                 </div>
 
                 <p>
